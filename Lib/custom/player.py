@@ -1,11 +1,13 @@
+from Lib.custom import printlbl as p
+
 def choice(choicesKeys: list) -> str:
-    print("Choisissez entre pierre, papier et ciseaux ! (Ou appuyez sur 'q' pour quitter)")
+    p.print_lbl("Choisissez entre pierre, papier et ciseaux ! (Ou appuyez sur 'q' pour quitter)\n")
     while True:
         player = input("pi✊/pa✋/ci✌ : ")
         if player in choicesKeys:
             return player
         if player == "q":
-            print("Merci d'avoir joué !👋")
+            p.print_lbl("Merci d'avoir joué !👋\n")
             return "q"
         else:
-            print("Veuillez sélectionner votre choix parmi les choix possibles. Seules les abréviations données sont acceptées.")
+            p.print_lbl("Veuillez sélectionner votre choix parmi les choix possibles. Seules les abréviations données sont acceptées.\n")

@@ -1,4 +1,4 @@
-from Lib.custom import player, opponent
+from Lib.custom import player, opponent, printlbl as p
 
 # Variables definitions
 choicesKeys = ["pi", "pa", "ci"]
@@ -12,10 +12,10 @@ opponentScore = 0
 def intro() -> None:
     """Small text of introduction
     """
-    print("Bienvenue dans le jeu exceptionnel de Pierre-Papier-Ciseaux !")
-    print("Ce jeu fait rêver petits et grands. Alors vous aussi sans doute...hein ?")
-    print("Rappel des règles : Pierre✊ bat Ciseaux✌ , Ciseaux✌ bat Papier✋ , Papier🤚 bat Pierre✊.")
-    print("Vous allez jouer avec l'ordinateur. Que la chance soit avec vous !")
+    p.print_lbl("Bienvenue dans le jeu exceptionnel de Pierre-Papier-Ciseaux !\n")
+    p.print_lbl("Ce jeu fait rêver petits et grands. Alors vous aussi sans doute...hein ?\n")
+    p.print_lbl("Rappel des règles : Pierre✊ bat Ciseaux✌ , Ciseaux✌ bat Papier✋ , Papier🤚 bat Pierre✊.\n")
+    p.print_lbl("Vous allez jouer avec l'ordinateur. Que la chance soit avec vous !\n")
     
 def game() -> None:
     """To run the game
@@ -46,13 +46,13 @@ def whoWins(playerChoice: str, opponentChoice: str) -> None:
     global choicesKeys
         
     if playerChoice == opponentChoice:
-        print(f"Vous avez tous les deux choisis {choicesDict[playerChoice]} ! C'est une égalité !")
+        p.print_lbl(f"Vous avez tous les deux choisis {choicesDict[playerChoice]} ! C'est une égalité !\n")
     elif (playerChoice == choicesKeys[0] and opponentChoice == choicesKeys[2]) or (playerChoice == choicesKeys[1] and opponentChoice == choicesKeys[0]) or (playerChoice == choicesKeys[2] and opponentChoice == choicesKeys[1]):
         playerScore += 1
-        print(f"✅ Vous avez gagné un point ! L'ordi avait choisi {choicesDict[opponentChoice]} et vous l'avez battu avec {choicesDict[playerChoice]} !")
+        p.print_lbl(f"✅ Vous avez gagné un point ! L'ordi avait choisi {choicesDict[opponentChoice]} et vous l'avez battu avec {choicesDict[playerChoice]} !\n")
     else:
         opponentScore += 1
-        print(f"❌ Perdu ! Vous avez choisi {choicesDict[playerChoice]} et l'ordi vous a battu avec {choicesDict[opponentChoice]}...")
+        p.print_lbl(f"❌ Perdu ! Vous avez choisi {choicesDict[playerChoice]} et l'ordi vous a battu avec {choicesDict[opponentChoice]}...\n")
     showScores()
     return
     
@@ -63,5 +63,5 @@ def showScores(isLastTime: bool = False) -> None:
         isLastTime (bool, optional): if True, adds text. Defaults to False.
     """
     if isLastTime:
-        print("Scores finaux :")
-    print(f"Votre score : {playerScore} | Score de l'ordi : {opponentScore}")
+        p.print_lbl("Scores finaux :")
+    p.print_lbl(f"Votre score : {playerScore} | Score de l'ordi : {opponentScore}\n")
